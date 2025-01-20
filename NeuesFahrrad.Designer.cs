@@ -152,7 +152,7 @@
             // comboBoxSchaltwerk
             // 
             comboBoxSchaltwerk.FormattingEnabled = true;
-            comboBoxSchaltwerk.Location = new Point(22, 53);
+            comboBoxSchaltwerk.Location = new Point(24, 38);
             comboBoxSchaltwerk.Name = "comboBoxSchaltwerk";
             comboBoxSchaltwerk.Size = new Size(121, 23);
             comboBoxSchaltwerk.TabIndex = 4;
@@ -176,7 +176,7 @@
             // comboBoxStaender
             // 
             comboBoxStaender.FormattingEnabled = true;
-            comboBoxStaender.Location = new Point(22, 125);
+            comboBoxStaender.Location = new Point(90, 87);
             comboBoxStaender.Name = "comboBoxStaender";
             comboBoxStaender.Size = new Size(121, 23);
             comboBoxStaender.TabIndex = 7;
@@ -208,7 +208,7 @@
             // comboBoxRitzel
             // 
             comboBoxRitzel.FormattingEnabled = true;
-            comboBoxRitzel.Location = new Point(159, 52);
+            comboBoxRitzel.Location = new Point(156, 38);
             comboBoxRitzel.Name = "comboBoxRitzel";
             comboBoxRitzel.Size = new Size(121, 23);
             comboBoxRitzel.TabIndex = 11;
@@ -368,7 +368,7 @@
             // labelRitzel
             // 
             labelRitzel.AutoSize = true;
-            labelRitzel.Location = new Point(159, 35);
+            labelRitzel.Location = new Point(155, 20);
             labelRitzel.Name = "labelRitzel";
             labelRitzel.Size = new Size(35, 15);
             labelRitzel.TabIndex = 30;
@@ -377,7 +377,7 @@
             // labelSchaltwerk
             // 
             labelSchaltwerk.AutoSize = true;
-            labelSchaltwerk.Location = new Point(22, 35);
+            labelSchaltwerk.Location = new Point(22, 20);
             labelSchaltwerk.Name = "labelSchaltwerk";
             labelSchaltwerk.Size = new Size(64, 15);
             labelSchaltwerk.TabIndex = 31;
@@ -458,7 +458,7 @@
             // labelStaender
             // 
             labelStaender.AutoSize = true;
-            labelStaender.Location = new Point(22, 107);
+            labelStaender.Location = new Point(90, 69);
             labelStaender.Name = "labelStaender";
             labelStaender.Size = new Size(47, 15);
             labelStaender.TabIndex = 40;
@@ -501,7 +501,7 @@
             panelLichtanlagen.BackColor = Color.FromArgb(165, 201, 202);
             panelLichtanlagen.Controls.Add(labelLichtanlagen);
             panelLichtanlagen.Controls.Add(comboBoxLichtanlagen);
-            panelLichtanlagen.Location = new Point(968, 482);
+            panelLichtanlagen.Location = new Point(968, 520);
             panelLichtanlagen.Name = "panelLichtanlagen";
             panelLichtanlagen.Size = new Size(300, 70);
             panelLichtanlagen.TabIndex = 43;
@@ -545,9 +545,9 @@
             panelSchaltung.Controls.Add(comboBoxRitzel);
             panelSchaltung.Controls.Add(comboBoxStaender);
             panelSchaltung.Controls.Add(comboBoxSchaltwerk);
-            panelSchaltung.Location = new Point(68, 630);
+            panelSchaltung.Location = new Point(68, 700);
             panelSchaltung.Name = "panelSchaltung";
-            panelSchaltung.Size = new Size(300, 200);
+            panelSchaltung.Size = new Size(300, 130);
             panelSchaltung.TabIndex = 46;
             // 
             // panelModell

@@ -49,6 +49,36 @@ namespace FahrradHandel
 
         #region Get all Lists
 
+        public List<string> getTableName()
+        {
+            List<string> litab = new List<string>();
+
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+                com.CommandText = string.Format("show tables;");
+                MySqlDataReader reader = com.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    litab.Add(reader.GetString(0));
+                }
+                reader.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Tabellen (getTableName()) können nicht geladen werden." + Environment.NewLine + ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+
+            return litab;
+        }
+
+
         public List<Fahrrad> getFahrrad()
         {
             List<Fahrrad> liFahrrad = new List<Fahrrad>();
@@ -912,9 +942,60 @@ namespace FahrradHandel
             }
         }
 
+        public void deleteTeil(string auswahl, int delID)
+        {
+            try
+            {
+                Open();
+
+                MySqlCommand com = con.CreateCommand();
+                com.CommandText = string.Format("DELETE FROM {0} WHERE {1}ID = {2};", auswahl, auswahl, delID);
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
         #endregion
 
+        #region Read from Database
 
+        public List<string> getselectedTeil(string auswahl)
+        {
+            List<string> liSpalten = new List<string>();
+
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+                com.CommandText = string.Format("desc `{0}`;", auswahl);
+                MySqlDataReader reader = com.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    liSpalten.Add(reader.GetString(0));
+                }
+                reader.Close();
+            }
+            catch(Exception ex)
+            {
+
+            }
+            finally
+            {
+                Close();
+            }
+
+            return liSpalten;
+        }
+
+        #endregion
 
     }
 
