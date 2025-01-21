@@ -68,3 +68,4 @@ C:\Users\Sa.Kleinen\source\repos\Fahrradhandeldb\obj\Debug\net8.0-windows\refint
 C:\Users\Sa.Kleinen\source\repos\Fahrradhandeldb\obj\Debug\net8.0-windows\FahrradHandel.pdb
 C:\Users\Sa.Kleinen\source\repos\Fahrradhandeldb\obj\Debug\net8.0-windows\FahrradHandel.genruntimeconfig.cache
 C:\Users\Sa.Kleinen\source\repos\Fahrradhandeldb\obj\Debug\net8.0-windows\ref\FahrradHandel.dll
+C:\Users\Sa.Kleinen\source\repos\Fahrradhandeldb\obj\Debug\net8.0-windows\FahrradHandel.TeilHinzufuegen.resources

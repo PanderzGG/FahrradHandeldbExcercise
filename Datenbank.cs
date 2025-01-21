@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -871,11 +873,12 @@ namespace FahrradHandel
 
                 if (fahrrad.FahrradID == -1)
                 {
-                    com.CommandText = "INSERT INTO fahrrad (marke, modell, preis, stk_auf_lager, rahmenID, laufraederID, reifenID, gabelID, lenkerID, vorbauID, sattelID, sattelstuetzeID, pedaleID, kettenblattID, ketteID, schaltwerkID, ritzelID, tretlagerID, bremsenID, bremshebelID,lichtanlageID, staenderID, klingelID, bild_dateiname) VALUES (@Marke, @Modell, @Preis, @AufLager, @RahmenID, @LaufraederID, @ReifenID, @GabelID, @LenkerID, @VorbauID, @SattelID, @SattelstuetzeID, @PedaleID, @KettenblattID, @KetteID, @SchaltwerkID, @RitzelID, @TretlagerID, @BremsenID, @BremshebelID,@LichtanlageID, @StaenderID, @KlingelID, @bild_dateiname)";
+                    com.CommandText = "INSERT INTO fahrrad (marke, modell, preis, stk_auf_lager, rahmenID, laufraederID, reifenID, gabelID, lenkerID, vorbauID, sattelID, sattelstuetzeID, pedaleID, kettenblattID, ketteID, schaltwerkID, ritzelID, tretlagerID, bremsenID, bremshebelID,lichtanlageID, staenderID, klingelID, bild_dateiname)" +
+                                      "VALUES (@Marke, @Modell, @Preis, @AufLager, @RahmenID, @LaufraederID, @ReifenID, @GabelID, @LenkerID, @VorbauID, @SattelID, @SattelstuetzeID, @PedaleID, @KettenblattID, @KetteID, @SchaltwerkID, @RitzelID, @TretlagerID, @BremsenID, @BremshebelID,@LichtanlageID, @StaenderID, @KlingelID, @bild_dateiname);";
                 }
                 else
                 {
-                    com.CommandText = "UPDATE fahrrad SET marke = @Marke, modell = @Modell, preis = @Preis, stk_auf_lager = @AufLager, rahmenID = @RahmenID, laufraederID = @LaufraederID, reifenID = @ReifenID, gabelID = @GabelID, lenkerID = @LenkerID, vorbauID = @VorbauID, sattelID = @SattelID, sattelstuetzeID = @SattelstuetzeID, pedaleID = @PedaleID, kettenblattID = @KettenblattID, ketteID = @KetteID, schaltwerkID = @SchaltwerkID, ritzelID = @RitzelID, tretlagerID = @TretlagerID, bremsenID = @BremsenID, bremshebelID = @bremshebelID, lichtanlageID = @LichtanlageID, staenderID = @StaenderID, klingelID = @KlingelID WHERE fahrradID = @FahrradID";
+                    com.CommandText = "UPDATE fahrrad SET marke = @Marke, modell = @Modell, preis = @Preis, stk_auf_lager = @AufLager, rahmenID = @RahmenID, laufraederID = @LaufraederID, reifenID = @ReifenID, gabelID = @GabelID, lenkerID = @LenkerID, vorbauID = @VorbauID, sattelID = @SattelID, sattelstuetzeID = @SattelstuetzeID, pedaleID = @PedaleID, kettenblattID = @KettenblattID, ketteID = @KetteID, schaltwerkID = @SchaltwerkID, ritzelID = @RitzelID, tretlagerID = @TretlagerID, bremsenID = @BremsenID, bremshebelID = @bremshebelID, lichtanlageID = @LichtanlageID, staenderID = @StaenderID, klingelID = @KlingelID WHERE fahrradID = @FahrradID;";
                     com.Parameters.AddWithValue("@FahrradID", fahrrad.FahrradID);
                 }
 
@@ -908,6 +911,452 @@ namespace FahrradHandel
             catch (Exception ex)
             {
                 MessageBox.Show("TEstooo " + ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newBremsen(Bremsen bremse)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (bremse.BremsenID == -1)
+                {
+                    com.CommandText = "INSERT INTO bremsen(marke, modell, preis, stk_auf_lager, bremsart, bremsbelagmaterial, durchmesser)" +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @bremsart, @bremsbelagmaterial, @durchmesser)";
+                }
+                else
+                {
+
+                }
+                com.Parameters.AddWithValue("@marke", bremse.Marke);
+                com.Parameters.AddWithValue("@modell", bremse.Modell);
+                com.Parameters.AddWithValue("@preis", bremse.Preis);
+                com.Parameters.AddWithValue("@aufLager", bremse.AufLager);
+                com.Parameters.AddWithValue("@bremsart", bremse.BremsArt);
+                com.Parameters.AddWithValue("@bremsbelagmaterial", bremse.Bremsbelagmaterial);
+                com.Parameters.AddWithValue("@durchmesser", bremse.Durchmesser);
+                com.ExecuteNonQuery();
+
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newBremshebel(Bremshebel bremsh)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if(bremsh.BremshebelID == -1)
+                {
+                    
+                    com.CommandText = "INSERT INTO bremshebel(marke, modell, preis, stk_auf_lager, hebelmaterial, verstellbar, ergonomie) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @hebelmaterial, @verstellbar, @ergonomie)";
+                }
+                else
+                {
+
+                }
+                
+                com.Parameters.AddWithValue("@marke", bremsh.Marke);
+                com.Parameters.AddWithValue("@modell", bremsh.Modell);
+                com.Parameters.AddWithValue("@preis", bremsh.Preis);
+                com.Parameters.AddWithValue("@aufLager", bremsh.AufLager);
+                com.Parameters.AddWithValue("@hebelmaterial", bremsh.Hebelmaterial);
+                com.Parameters.AddWithValue("@verstellbar", bremsh.Verstellbar);
+                com.Parameters.AddWithValue("@ergonomie", bremsh.Ergonomie);
+                
+                com.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newGabel(Gabel gabel)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (gabel.GabelID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO gabel(marke, modell, preis, stk_auf_lager, gabeltyp, material, federweg) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @gabeltyp, @material, @federweg)";
+                }
+                else
+                {
+
+                }
+
+                com.Parameters.AddWithValue("@marke", gabel.Marke);
+                com.Parameters.AddWithValue("@modell", gabel.Modell);
+                com.Parameters.AddWithValue("@preis", gabel.Preis);
+                com.Parameters.AddWithValue("@aufLager", gabel.AufLager);
+                com.Parameters.AddWithValue("@gabeltyp", gabel.Gabeltyp);
+                com.Parameters.AddWithValue("@material", gabel.Material);
+                com.Parameters.AddWithValue("@federweg", gabel.Federweg);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newKette(Kette kette)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (kette.KetteID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO kette(marke, modell, preis, stk_auf_lager, kettenart, material, laenge) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @kettenart, @material, @laenge)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", kette.Marke);
+                com.Parameters.AddWithValue("@modell", kette.Modell);
+                com.Parameters.AddWithValue("@preis", kette.Preis);
+                com.Parameters.AddWithValue("@aufLager", kette.AufLager);
+                com.Parameters.AddWithValue("@kettenart", kette.Kettenart);
+                com.Parameters.AddWithValue("@material", kette.Material);
+                com.Parameters.AddWithValue("@laenge", kette.Laenge);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newKettenblatt(Kettenblatt kettenb)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (kettenb.KettenblattID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO kettenblatt(marke, modell, preis, stk_auf_lager, zahnanzahl, material, lochkreis) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @zahnanzahl, @material, @lochkreis)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", kettenb.Marke);
+                com.Parameters.AddWithValue("@modell", kettenb.Modell);
+                com.Parameters.AddWithValue("@preis", kettenb.Preis);
+                com.Parameters.AddWithValue("@aufLager", kettenb.AufLager);
+                com.Parameters.AddWithValue("@zahnanzahl", kettenb.Zahnanzahl);
+                com.Parameters.AddWithValue("@material", kettenb.Material);
+                com.Parameters.AddWithValue("@lochkreis", kettenb.Lochkreis);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newKlingel(Klingel klingel)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (klingel.KlingelID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO klingel(marke, modell, preis, stk_auf_lager, klingeltyp, material, lautstaerke) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @klingeltyp, @material, @lautstaerke)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", klingel.Marke);
+                com.Parameters.AddWithValue("@modell", klingel.Modell);
+                com.Parameters.AddWithValue("@preis", klingel.Preis);
+                com.Parameters.AddWithValue("@aufLager", klingel.AufLager);
+                com.Parameters.AddWithValue("@klingeltyp", klingel.Klingeltyp);
+                com.Parameters.AddWithValue("@material", klingel.Material);
+                com.Parameters.AddWithValue("@lautstaerke", klingel.Lautstaerke);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newLaufrad(Laufraeder laufrad)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (laufrad.LaufraederID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO laufraeder(marke, modell, preis, stk_auf_lager, klingeltyp, material, lautstaerke) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @klingeltyp, @material, @lautstaerke)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", laufrad.Marke);
+                com.Parameters.AddWithValue("@modell", laufrad.Modell);
+                com.Parameters.AddWithValue("@preis", laufrad.Preis);
+                com.Parameters.AddWithValue("@aufLager", laufrad.AufLager);
+                com.Parameters.AddWithValue("@felgengroesse", laufrad.Felgengroesse);
+                com.Parameters.AddWithValue("@nabenart", laufrad.Narbenart);
+                com.Parameters.AddWithValue("@reifentyp", laufrad.Reifentyp);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newLenker(Lenker lenker)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (lenker.LenkerID== -1)
+                {
+
+                    com.CommandText = "INSERT INTO lenker(marke, modell, preis, stk_auf_lager, lenkertyp, material, breite) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @lenkertyp, @material, @breite)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", lenker.Marke);
+                com.Parameters.AddWithValue("@modell", lenker.Modell);
+                com.Parameters.AddWithValue("@preis", lenker.Preis);
+                com.Parameters.AddWithValue("@aufLager", lenker.AufLager);
+                com.Parameters.AddWithValue("@lenkertyp", lenker.Lenkertyp);
+                com.Parameters.AddWithValue("@material", lenker.Material);
+                com.Parameters.AddWithValue("@breite", lenker.Breite);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newLichtanlage(Lichtanlage lichtan)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (lichtan.LichtanlageID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO lichtanlage(marke, modell, preis, stk_auf_lager, leuchtstaerke, stromversorgung, montagemoeglichkeit) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @leuchtstaerke, @stromversorgung, @montage)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", lichtan.Marke);
+                com.Parameters.AddWithValue("@modell", lichtan.Modell);
+                com.Parameters.AddWithValue("@preis", lichtan.Preis);
+                com.Parameters.AddWithValue("@aufLager", lichtan.AufLager);
+                com.Parameters.AddWithValue("@leuchtstaerke", lichtan.Leuchtstaerke);
+                com.Parameters.AddWithValue("@stromversorgung", lichtan.Stromversorgung);
+                com.Parameters.AddWithValue("@montage", lichtan.Montagemoeglichkeit);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newPedale(Pedale pedal)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (pedal.PedaleID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO pedale(marke, modell, preis, stk_auf_lager, pedaltyp, material, reflektoren) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @pedaltyp, @material, @reflektoren)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", pedal.Marke);
+                com.Parameters.AddWithValue("@modell", pedal.Modell);
+                com.Parameters.AddWithValue("@preis", pedal.Preis);
+                com.Parameters.AddWithValue("@aufLager", pedal.AufLager);
+                com.Parameters.AddWithValue("@pedaltyp", pedal.Pedaltyp);
+                com.Parameters.AddWithValue("@material", pedal.Material);
+                com.Parameters.AddWithValue("@reflektoren", pedal.Reflektoren);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newRahmen(Rahmen rahmen)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (rahmen.RahmenID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO rahmen(marke, modell, preis, stk_auf_lager, material, groesse, farbe) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @material, @groesse, @farbe)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", rahmen.Marke);
+                com.Parameters.AddWithValue("@modell", rahmen.Modell);
+                com.Parameters.AddWithValue("@preis", rahmen.Preis);
+                com.Parameters.AddWithValue("@aufLager", rahmen.AufLager);
+                com.Parameters.AddWithValue("@material", rahmen.Material);
+                com.Parameters.AddWithValue("@groesse", rahmen.Groesse);
+                com.Parameters.AddWithValue("@farbe", rahmen.Farbe);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newReifen(Reifen reifen)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (reifen.ReifenID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO reifen(marke, modell, preis, stk_auf_lager, reifentyp, groesse, profil) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @reifentyp, @groesse, @profil)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", reifen.Marke);
+                com.Parameters.AddWithValue("@modell", reifen.Modell);
+                com.Parameters.AddWithValue("@preis", reifen.Preis);
+                com.Parameters.AddWithValue("@aufLager", reifen.AufLager);
+                com.Parameters.AddWithValue("@reifentyp", reifen.Reifentyp);
+                com.Parameters.AddWithValue("@groesse", reifen.Groesse);
+                com.Parameters.AddWithValue("@profil", reifen.Profil);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             finally
             {
