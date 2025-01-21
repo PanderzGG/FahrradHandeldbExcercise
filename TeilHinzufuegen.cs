@@ -437,7 +437,7 @@ namespace FahrradHandel
             {
                 if (!anyEmpty)
                 {
-                    Reifen reifen= new Reifen(
+                    Reifen reifen = new Reifen(
                         -1,
                         textBoxReifenMarke.Text,
                         textBoxReifenModell.Text,
@@ -460,6 +460,261 @@ namespace FahrradHandel
             }
         }
 
+        private void panelRitzelhinzufuegen_Click(object sender, EventArgs e)
+        {
+            bool anyEmpty = isBoxEmpty(tabControlTeilHinzufügen.SelectedTab);
+
+            bool isVerstellbar = false;
+
+            if (radioButtonRitzelFreilaufJA.Checked)
+            {
+                isVerstellbar = true;
+            }
+            else if (radioButtonRitzelFreilaufNein.Checked)
+            {
+                isVerstellbar = false;
+            }
+            else
+            {
+                MessageBox.Show("Wählen Sie die Verstellbarkeit aus");
+            }
+
+            try
+            {
+                if (!anyEmpty)
+                {
+                    Ritzel ritzel = new Ritzel(
+                        -1,
+                        textBoxRitzelMarke.Text,
+                        textBoxRitzelModell.Text,
+                        Convert.ToDecimal(textBoxRitzelPreis.Text),
+                        Convert.ToInt32(textBoxRitzelAufLager.Text),
+                        Convert.ToInt32(textBoxRitzelZahnanzahl.Text),
+                        textBoxRitzelMaterial.Text,
+                        isVerstellbar
+                        );
+
+                    db.newRitzel(ritzel);
+
+                    MessageBox.Show(textBoxRitzelModell.Text + " wurde erfolgreich erstellt.");
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void panelSattelHinzufuegen_Click(object sender, EventArgs e)
+        {
+            bool anyEmpty = isBoxEmpty(tabControlTeilHinzufügen.SelectedTab);
+            try
+            {
+                if (!anyEmpty)
+                {
+                    Sattel sattel = new Sattel(
+                        -1,
+                        textBoxSattelMarke.Text,
+                        textBoxSattelModell.Text,
+                        Convert.ToDecimal(textBoxSattelPreis.Text),
+                        Convert.ToInt32(textBoxSattelAufLager.Text),
+                        textBoxSattelSatteltyp.Text,
+                        textBoxSattelMaterial.Text,
+                        textBoxSattelPolsterung.Text
+                        );
+                    db.newSattel(sattel);
+                    MessageBox.Show(textBoxSattelModell.Text + " wurde erfolgreich erstellt.");
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void panelSattelstuetzeHinzufuegen_Click(object sender, EventArgs e)
+        {
+            bool anyEmpty = isBoxEmpty(tabControlTeilHinzufügen.SelectedTab);
+
+            bool isVerstellbar = false;
+
+            if (radioButtonSattelstuetzeJa.Checked)
+            {
+                isVerstellbar = true;
+            }
+            else if (radioButtonSattelstuetzeNein.Checked)
+            {
+                isVerstellbar = false;
+            }
+            else
+            {
+                MessageBox.Show("Wählen Sie die Verstellbarkeit aus");
+            }
+
+            try
+            {
+                if (!anyEmpty)
+                {
+                    Sattelstuetze sattelst = new Sattelstuetze(
+                        -1,
+                        textBoxSattelstuetzeMarke.Text,
+                        textBoxSattelstuetzeModell.Text,
+                        Convert.ToDecimal(textBoxSattelstuetzePreis.Text),
+                        Convert.ToInt32(textBoxSattelstuetzeAufLager.Text),
+                        Convert.ToInt32(textBoxSattelstuetzeDurchmesser.Text),
+                        textBoxSattelstuetzeMaterial.Text,
+                        isVerstellbar
+                        );
+
+                    db.newSattelstuetze(sattelst);
+
+                    MessageBox.Show(textBoxSattelstuetzeModell.Text + " wurde erfolgreich erstellt.");
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void panelSchaltwerkHinzufügen_Click(object sender, EventArgs e)
+        {
+            bool anyEmpty = isBoxEmpty(tabControlTeilHinzufügen.SelectedTab);
+            try
+            {
+                if (!anyEmpty)
+                {
+                    Schaltwerk schaltw = new Schaltwerk(
+                        -1,
+                        textBoxSchaltwerkMarke.Text,
+                        textBoxSchaltwerkModell.Text,
+                        Convert.ToDecimal(textBoxSchaltwerkPreis.Text),
+                        Convert.ToInt32(textBoxSchaltwerkAufLager.Text),
+                        textBoxSchaltwerkSchaltungstyp.Text,
+                        textBoxSchaltwerkMaterial.Text,
+                        Convert.ToInt32(textBoxSchaltwerkSchaltstufen.Text)
+                        );
+                    db.newSchaltwerk(schaltw);
+                    MessageBox.Show(textBoxSattelModell.Text + " wurde erfolgreich erstellt.");
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void panelStaenderHinzufuegen_Click(object sender, EventArgs e)
+        {
+            bool anyEmpty = isBoxEmpty(tabControlTeilHinzufügen.SelectedTab);
+
+            bool isVerstellbar = false;
+
+            if (radioButtonStaenderVerstellbarJa.Checked)
+            {
+                isVerstellbar = true;
+            }
+            else if (radioButtonStaenderVerstellbarNein.Checked)
+            {
+                isVerstellbar = false;
+            }
+            else
+            {
+                MessageBox.Show("Wählen Sie die Verstellbarkeit aus");
+            }
+
+            try
+            {
+                if (!anyEmpty)
+                {
+                    Staender staender = new Staender(
+                        -1,
+                        textBoxStaenderMarke.Text,
+                        textBoxStaenderModell.Text,
+                        Convert.ToDecimal(textBoxSattelstuetzePreis.Text),
+                        Convert.ToInt32(textBoxSattelstuetzeAufLager.Text),
+                        textBoxStaenderTyp.Text,
+                        textBoxStaenderMaterial.Text,
+                        isVerstellbar
+                        );
+
+                    db.newStaender(staender);
+
+                    MessageBox.Show(textBoxSattelstuetzeModell.Text + " wurde erfolgreich erstellt.");
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void panelTretlagerHinzufuegen_Click(object sender, EventArgs e)
+        {
+            bool anyEmpty = isBoxEmpty(tabControlTeilHinzufügen.SelectedTab);
+            try
+            {
+                if (!anyEmpty)
+                {
+                    Tretlager tretlager = new Tretlager(
+                        -1,
+                        textBoxTretlagerMarke.Text,
+                        textBoxTretlagerModell.Text,
+                        Convert.ToDecimal(textBoxTretlagerPreis.Text),
+                        Convert.ToInt32(textBoxTretlagerAufLager.Text),
+                        Convert.ToInt32(textBoxTretlagerAchsendurchmesser.Text),
+                        textBoxTretlagerMaterial.Text,
+                        textBoxTretlagerLagerart.Text
+                        );
+
+                    db.newTretlager(tretlager);
+                    MessageBox.Show(textBoxTretlagerModell.Text + " wurde erfolgreich erstellt.");
+
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void panelVorbauHinzufuegen_Click(object sender, EventArgs e)
+        {
+            bool anyEmpty = isBoxEmpty(tabControlTeilHinzufügen.SelectedTab);
+            try
+            {
+                if (!anyEmpty)
+                {
+                    Vorbau vorbau = new Vorbau(
+                        -1,
+                        textBoxVorbauMarke.Text,
+                        textBoxVorbauModell.Text,
+                        Convert.ToDecimal(textBoxVorbauPreis.Text),
+                        Convert.ToInt32(textBoxVorbauAufLager.Text),
+                        Convert.ToInt32(textBoxVorbauLaenge.Text),
+                        Convert.ToInt32(textBoxVorbauWinkel.Text),
+                        textBoxVorbauMaterial.Text
+                        );
+
+                    db.newVorbau(vorbau);
+                    MessageBox.Show(textBoxVorbauModell.Text + " wurde erfolgreich erstellt.");
+
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         #endregion
+
+
     }
 }

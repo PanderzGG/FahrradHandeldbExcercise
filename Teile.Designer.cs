@@ -39,11 +39,13 @@
             labelTeile = new Label();
             dataGridViewTeile = new DataGridView();
             panelTeilHinzufuegen = new Panel();
+            label1 = new Label();
             panelButtonTeileFahrrad.SuspendLayout();
             panelTitel.SuspendLayout();
             panelButtonTeileZurueck.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTeile).BeginInit();
+            panelTeilHinzufuegen.SuspendLayout();
             SuspendLayout();
             // 
             // panelButtonTeileFahrrad
@@ -52,7 +54,7 @@
             panelButtonTeileFahrrad.Controls.Add(labelButtonTeileFahrraeder);
             panelButtonTeileFahrrad.Location = new Point(-8, 179);
             panelButtonTeileFahrrad.Name = "panelButtonTeileFahrrad";
-            panelButtonTeileFahrrad.Size = new Size(561, 67);
+            panelButtonTeileFahrrad.Size = new Size(621, 67);
             panelButtonTeileFahrrad.TabIndex = 7;
             // 
             // labelButtonTeileFahrraeder
@@ -60,7 +62,7 @@
             labelButtonTeileFahrraeder.AutoSize = true;
             labelButtonTeileFahrraeder.Font = new Font("Segoe UI", 20F);
             labelButtonTeileFahrraeder.ForeColor = Color.FromArgb(231, 246, 242);
-            labelButtonTeileFahrraeder.Location = new Point(207, 15);
+            labelButtonTeileFahrraeder.Location = new Point(243, 15);
             labelButtonTeileFahrraeder.Name = "labelButtonTeileFahrraeder";
             labelButtonTeileFahrraeder.Size = new Size(129, 37);
             labelButtonTeileFahrraeder.TabIndex = 0;
@@ -72,7 +74,7 @@
             panelTitel.Controls.Add(labelFahrradHandel);
             panelTitel.Location = new Point(0, 0);
             panelTitel.Name = "panelTitel";
-            panelTitel.Size = new Size(1216, 179);
+            panelTitel.Size = new Size(1233, 179);
             panelTitel.TabIndex = 6;
             // 
             // labelFahrradHandel
@@ -92,7 +94,7 @@
             labelButtonTeileZurueck.AutoSize = true;
             labelButtonTeileZurueck.Font = new Font("Segoe UI", 20F);
             labelButtonTeileZurueck.ForeColor = Color.FromArgb(231, 246, 242);
-            labelButtonTeileZurueck.Location = new Point(226, 15);
+            labelButtonTeileZurueck.Location = new Point(262, 15);
             labelButtonTeileZurueck.Name = "labelButtonTeileZurueck";
             labelButtonTeileZurueck.Size = new Size(96, 37);
             labelButtonTeileZurueck.TabIndex = 1;
@@ -102,9 +104,9 @@
             // 
             panelButtonTeileZurueck.BackColor = Color.FromArgb(165, 201, 202);
             panelButtonTeileZurueck.Controls.Add(labelButtonTeileZurueck);
-            panelButtonTeileZurueck.Location = new Point(553, 179);
+            panelButtonTeileZurueck.Location = new Point(619, 179);
             panelButtonTeileZurueck.Name = "panelButtonTeileZurueck";
-            panelButtonTeileZurueck.Size = new Size(548, 67);
+            panelButtonTeileZurueck.Size = new Size(614, 67);
             panelButtonTeileZurueck.TabIndex = 8;
             // 
             // panel1
@@ -119,21 +121,23 @@
             // 
             // comboBoxTeilAuswahl
             // 
+            comboBoxTeilAuswahl.Font = new Font("Segoe UI", 18F);
             comboBoxTeilAuswahl.FormattingEnabled = true;
-            comboBoxTeilAuswahl.Location = new Point(15, 28);
+            comboBoxTeilAuswahl.Location = new Point(20, 36);
             comboBoxTeilAuswahl.Name = "comboBoxTeilAuswahl";
-            comboBoxTeilAuswahl.Size = new Size(121, 23);
+            comboBoxTeilAuswahl.Size = new Size(230, 40);
             comboBoxTeilAuswahl.TabIndex = 1;
             comboBoxTeilAuswahl.SelectedIndexChanged += comboBoxTeilAuswahl_SelectedIndexChanged;
             // 
             // labelTeile
             // 
             labelTeile.AutoSize = true;
-            labelTeile.Location = new Point(15, 10);
+            labelTeile.Font = new Font("Segoe UI", 16F);
+            labelTeile.Location = new Point(20, 3);
             labelTeile.Name = "labelTeile";
-            labelTeile.Size = new Size(38, 15);
+            labelTeile.Size = new Size(45, 30);
             labelTeile.TabIndex = 0;
-            labelTeile.Text = "label1";
+            labelTeile.Text = "Teil";
             // 
             // dataGridViewTeile
             // 
@@ -154,11 +158,23 @@
             // panelTeilHinzufuegen
             // 
             panelTeilHinzufuegen.BackColor = Color.FromArgb(165, 201, 202);
-            panelTeilHinzufuegen.Location = new Point(87, 422);
+            panelTeilHinzufuegen.Controls.Add(label1);
+            panelTeilHinzufuegen.Location = new Point(57, 420);
             panelTeilHinzufuegen.Name = "panelTeilHinzufuegen";
-            panelTeilHinzufuegen.Size = new Size(223, 94);
+            panelTeilHinzufuegen.Size = new Size(271, 80);
             panelTeilHinzufuegen.TabIndex = 10;
             panelTeilHinzufuegen.Click += panelTeilHinzufuegen_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 18F);
+            label1.Location = new Point(66, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(139, 32);
+            label1.TabIndex = 0;
+            label1.Text = "Hinzufügen";
+            label1.Click += panelTeilHinzufuegen_Click;
             // 
             // Teile
             // 
@@ -167,9 +183,9 @@
             BackColor = Color.FromArgb(44, 51, 51);
             ClientSize = new Size(1232, 836);
             Controls.Add(panelTeilHinzufuegen);
+            Controls.Add(panelButtonTeileZurueck);
             Controls.Add(dataGridViewTeile);
             Controls.Add(panel1);
-            Controls.Add(panelButtonTeileZurueck);
             Controls.Add(panelButtonTeileFahrrad);
             Controls.Add(panelTitel);
             Name = "Teile";
@@ -183,6 +199,8 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTeile).EndInit();
+            panelTeilHinzufuegen.ResumeLayout(false);
+            panelTeilHinzufuegen.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -199,5 +217,6 @@
         private ComboBox comboBoxTeilAuswahl;
         private DataGridView dataGridViewTeile;
         private Panel panelTeilHinzufuegen;
+        private Label label1;
     }
 }

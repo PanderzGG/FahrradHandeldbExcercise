@@ -69,3 +69,4 @@ C:\Users\Sa.Kleinen\source\repos\Fahrradhandeldb\obj\Debug\net8.0-windows\Fahrra
 C:\Users\Sa.Kleinen\source\repos\Fahrradhandeldb\obj\Debug\net8.0-windows\FahrradHandel.genruntimeconfig.cache
 C:\Users\Sa.Kleinen\source\repos\Fahrradhandeldb\obj\Debug\net8.0-windows\ref\FahrradHandel.dll
 C:\Users\Sa.Kleinen\source\repos\Fahrradhandeldb\obj\Debug\net8.0-windows\FahrradHandel.TeilHinzufuegen.resources
+C:\Users\sasch\source\repos\FahrradHandel\FahrradHandel\obj\Debug\net8.0-windows\FahrradHandel.TeilHinzufuegen.resources

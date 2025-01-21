@@ -101,8 +101,59 @@ namespace FahrradHandel
 
         private void comboBoxTeilAuswahl_SelectedIndexChanged(object sender, EventArgs e)
         {
+            fillGrid();   
+        }
 
+        private void deleteTeil(object sender, KeyEventArgs e)
+        {
 
+            if (e.KeyCode == Keys.Delete && dataGridViewTeile.CurrentRow != null)
+            {
+                DialogResult result = MessageBox.Show("Sind Sie sicher, dass Sie " + dataGridViewTeile.CurrentRow.Cells[2].Value + " löschen möchten?", "Bestätigung", MessageBoxButtons.YesNo);
+                int index = dataGridViewTeile.CurrentRow.Index;
+                int delID;
+                string auswahl = comboBoxTeilAuswahl.SelectedItem.ToString();
+
+                if (result == DialogResult.Yes)
+                {
+                    delID = Convert.ToInt32(dataGridViewTeile.CurrentRow.Cells[0].Value);
+
+                    dataGridViewTeile.Rows.RemoveAt(index);
+                    db.deleteTeil(auswahl, delID);
+
+                    onLoadLists();
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+        }
+
+        private void panelTeilHinzufuegen_Click(object sender, EventArgs e)
+        {
+            if(comboBoxTeilAuswahl.Text != "")
+            {
+                string auswahl = comboBoxTeilAuswahl.Text;
+
+                TeilHinzufuegen teil = new TeilHinzufuegen(auswahl);
+
+                teil.FormClosed += neuesTeil;
+
+                teil.Show();
+            }
+        }
+
+        private void neuesTeil(object sender, FormClosedEventArgs e)
+        {
+            dataGridViewTeile.Rows.Clear();
+            onLoadLists();
+            fillGrid();
+        }
+
+        private void fillGrid()
+        {
             List<string> spaltenName = new List<string>();
 
 
@@ -238,63 +289,6 @@ namespace FahrradHandel
                     break;
             }
         }
-
-        private void deleteTeil(object sender, KeyEventArgs e)
-        {
-
-            if (e.KeyCode == Keys.Delete && dataGridViewTeile.CurrentRow != null)
-            {
-                DialogResult result = MessageBox.Show("Sind Sie sicher, dass Sie " + dataGridViewTeile.CurrentRow.Cells[2].Value + " löschen möchten?", "Bestätigung", MessageBoxButtons.YesNo);
-                int index = dataGridViewTeile.CurrentRow.Index;
-                int delID;
-                string auswahl = comboBoxTeilAuswahl.SelectedItem.ToString();
-
-                if (result == DialogResult.Yes)
-                {
-                    delID = Convert.ToInt32(dataGridViewTeile.CurrentRow.Cells[0].Value);
-
-                    dataGridViewTeile.Rows.RemoveAt(index);
-                    db.deleteTeil(auswahl, delID);
-
-                    onLoadLists();
-                }
-                else
-                {
-                    return;
-                }
-
-            }
-        }
-
-        private void panelTeilHinzufuegen_Click(object sender, EventArgs e)
-        {
-            if(comboBoxTeilAuswahl.Text != "")
-            {
-                string auswahl = comboBoxTeilAuswahl.Text;
-
-                TeilHinzufuegen teil = new TeilHinzufuegen(auswahl);
-
-                teil.FormClosed += neuesTeil;
-
-                teil.Show();
-            }
-        }
-
-        private void neuesTeil(object sender, FormClosedEventArgs e)
-        {
-            onLoadLists();
-        }
-
-        //if (dataGridViewTeile.SelectedCells[0].Value != null)
-        //{
-        //    delID = Convert.ToInt32(dataGridViewTeile.SelectedCells[0].Value);
-
-        //    MessageBox.Show(delID.ToString());
-        //}
-        //else
-        //{
-        //    return;
-        //}
 
     }
 }

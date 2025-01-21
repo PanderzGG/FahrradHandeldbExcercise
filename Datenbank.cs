@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -918,6 +919,38 @@ namespace FahrradHandel
             }
         }
 
+
+        public void InsertEntity<T>(T entity, string tableName)
+        {
+            try
+            {
+                Open();
+                var properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+                var columns = string.Join(", ", properties.Select(p => p.Name));
+                var placeholders = string.Join(", ", properties.Select(p => "@" + p.Name));
+
+                MySqlCommand com = con.CreateCommand();
+                com.CommandText = $"INSERT INTO {tableName} ({columns}) VALUES ({placeholders})";
+
+                foreach (var prop in properties)
+                {
+                    object value = prop.GetValue(entity) ?? DBNull.Value;
+                    com.Parameters.AddWithValue("@" + prop.Name, value);
+                }
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+
         public void newBremsen(Bremsen bremse)
         {
             try
@@ -1362,6 +1395,268 @@ namespace FahrradHandel
             {
                 Close();
             }
+        }
+
+        public void newRitzel(Ritzel ritzel)
+        {
+
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (ritzel.RitzelID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO ritzel(marke, modell, preis, stk_auf_lager, zahnanzahl, material, freilauf) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @zahnanzahl, @material, @freilauf)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", ritzel.Marke);
+                com.Parameters.AddWithValue("@modell", ritzel.Modell);
+                com.Parameters.AddWithValue("@preis", ritzel.Preis);
+                com.Parameters.AddWithValue("@aufLager", ritzel.AufLager);
+                com.Parameters.AddWithValue("@zahnanzahl", ritzel.Zahnanzahl);
+                com.Parameters.AddWithValue("@material", ritzel.Material);
+                com.Parameters.AddWithValue("@freilauf", ritzel.Freilauf);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newSattel(Sattel sattel)
+        {
+
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (sattel.SattelID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO sattel(marke, modell, preis, stk_auf_lager, satteltyp, material, polsterung) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @satteltyp, @material, @polsterung)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", sattel.Marke);
+                com.Parameters.AddWithValue("@modell", sattel.Modell);
+                com.Parameters.AddWithValue("@preis", sattel.Preis);
+                com.Parameters.AddWithValue("@aufLager", sattel.AufLager);
+                com.Parameters.AddWithValue("@satteltyp", sattel.Satteltyp);
+                com.Parameters.AddWithValue("@material", sattel.Material);
+                com.Parameters.AddWithValue("@polsterung", sattel.Polsterung);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newSattelstuetze(Sattelstuetze settelst)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (settelst.SattelstuetzeID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO sattelstuetze(marke, modell, preis, stk_auf_lager, durchmesser, material, federung) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @durchmesser, @material, @federung)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", settelst.Marke);
+                com.Parameters.AddWithValue("@modell", settelst.Modell);
+                com.Parameters.AddWithValue("@preis", settelst.Preis);
+                com.Parameters.AddWithValue("@aufLager", settelst.AufLager);
+                com.Parameters.AddWithValue("@durchmesser", settelst.Durchmesser);
+                com.Parameters.AddWithValue("@material", settelst.Material);
+                com.Parameters.AddWithValue("@federung", settelst.Federung);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newSchaltwerk(Schaltwerk schaltw)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (schaltw.SchaltwerkID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO schaltwerk(marke, modell, preis, stk_auf_lager, schaltungstyp, material, schaltstufen) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @schaltungstyp, @material, @schaltstufen)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", schaltw.Marke);
+                com.Parameters.AddWithValue("@modell", schaltw.Modell);
+                com.Parameters.AddWithValue("@preis", schaltw.Preis);
+                com.Parameters.AddWithValue("@aufLager", schaltw.AufLager);
+                com.Parameters.AddWithValue("@schaltungstyp", schaltw.Schaltungstyp);
+                com.Parameters.AddWithValue("@material", schaltw.Material);
+                com.Parameters.AddWithValue("@federung", schaltw.Schaltstufen);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newStaender(Staender staender)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (staender.StaenderID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO staender(marke, modell, preis, stk_auf_lager, typ, material, verstellbar) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @typ, @material, @verstellbar)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", staender.Marke);
+                com.Parameters.AddWithValue("@modell", staender.Modell);
+                com.Parameters.AddWithValue("@preis", staender.Preis);
+                com.Parameters.AddWithValue("@aufLager", staender.AufLager);
+                com.Parameters.AddWithValue("@typ", staender.Typ);
+                com.Parameters.AddWithValue("@material", staender.Material);
+                com.Parameters.AddWithValue("@verstellbar", staender.Verstellbar);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newTretlager(Tretlager tretlager)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (tretlager.TretlagerID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO tretlager(marke, modell, preis, stk_auf_lager, achsendurchmesser, material, lagerart) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @achsendurchmesser, @material, @lagerart)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", tretlager.Marke);
+                com.Parameters.AddWithValue("@modell", tretlager.Modell);
+                com.Parameters.AddWithValue("@preis", tretlager.Preis);
+                com.Parameters.AddWithValue("@aufLager", tretlager.AufLager);
+                com.Parameters.AddWithValue("@achsendurchmesser", tretlager.Achsendurchmesser);
+                com.Parameters.AddWithValue("@material", tretlager.Material);
+                com.Parameters.AddWithValue("@lagerart", tretlager.Lagerart);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+        }
+
+        public void newVorbau(Vorbau vorbau)
+        {
+            try
+            {
+                Open();
+                MySqlCommand com = con.CreateCommand();
+
+                if (vorbau.VorbauID == -1)
+                {
+
+                    com.CommandText = "INSERT INTO vorbau(marke, modell, preis, stk_auf_lager, laenge, winkel, material) " +
+                                      "VALUES (@marke, @modell, @preis, @aufLager, @laenge, @winkel, @material)";
+                }
+                else
+                {
+                }
+
+                com.Parameters.AddWithValue("@marke", vorbau.Marke);
+                com.Parameters.AddWithValue("@modell", vorbau.Modell);
+                com.Parameters.AddWithValue("@preis", vorbau.Preis);
+                com.Parameters.AddWithValue("@aufLager", vorbau.AufLager);
+                com.Parameters.AddWithValue("@laenge", vorbau.Laenge);
+                com.Parameters.AddWithValue("@winkel", vorbau.Winkel);
+                com.Parameters.AddWithValue("@material", vorbau.Material);
+
+                com.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }
+
         }
 
         #endregion
