@@ -174,115 +174,115 @@ namespace FahrradHandel
                 case "bremsen":
                     foreach (Bremsen v in bremsen)
                     {
-                        dataGridViewTeile.Rows.Add(v.BremsenID, v.Marke, v.Modell, v.Preis, v.AufLager, v.BremsArt, v.Bremsbelagmaterial, v.Durchmesser);
+                        dataGridViewTeile.Rows.Add(v.BremsenID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.BremsArt, v.Bremsbelagmaterial, v.Durchmesser);
                     }
                     break;
                 case "bremshebel":
                     foreach (Bremshebel v in bremshebel)
                     {
-                        dataGridViewTeile.Rows.Add(v.BremshebelID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Hebelmaterial, v.Verstellbar, v.Ergonomie);
+                        dataGridViewTeile.Rows.Add(v.BremshebelID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Hebelmaterial, v.Verstellbar, v.Ergonomie);
                     }
                     break;
                 case "gabel":
                     foreach (Gabel v in gabel)
                     {
-                        dataGridViewTeile.Rows.Add(v.GabelID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Gabeltyp, v.Material, v.Federweg);
+                        dataGridViewTeile.Rows.Add(v.GabelID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Gabeltyp, v.Material, v.Federweg);
                     }
                     break;
                 case "kette":
                     foreach (Kette v in kette)
                     {
-                        dataGridViewTeile.Rows.Add(v.KetteID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Kettenart, v.Material, v.Laenge);
+                        dataGridViewTeile.Rows.Add(v.KetteID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Kettenart, v.Material, v.Laenge);
                     }
                     break;
                 case "kettenblatt":
                     foreach (Kettenblatt v in kettenblatt)
                     {
-                        dataGridViewTeile.Rows.Add(v.KettenblattID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Zahnanzahl, v.Material, v.Lochkreis);
+                        dataGridViewTeile.Rows.Add(v.KettenblattID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Zahnanzahl, v.Material, v.Lochkreis);
                     }
                     break;
                 case "klingel":
                     foreach (Klingel v in klingel)
                     {
-                        dataGridViewTeile.Rows.Add(v.KlingelID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Klingeltyp, v.Material, v.Lautstaerke);
+                        dataGridViewTeile.Rows.Add(v.KlingelID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Klingeltyp, v.Material, v.Lautstaerke);
                     }
                     break;
                 case "laufraeder":
                     foreach (Laufraeder v in laufraeder)
                     {
-                        dataGridViewTeile.Rows.Add(v.LaufraederID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Felgengroesse, v.Narbenart, v.Reifentyp);
+                        dataGridViewTeile.Rows.Add(v.LaufraederID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Felgengroesse, v.Nabenart, v.Reifentyp);
                     }
                     break;
                 case "lenker":
                     foreach (Lenker v in lenker)
                     {
-                        dataGridViewTeile.Rows.Add(v.LenkerID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Lenkertyp, v.Material, v.Breite);
+                        dataGridViewTeile.Rows.Add(v.LenkerID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Lenkertyp, v.Material, v.Breite);
                     }
                     break;
                 case "lichtanlage":
                     foreach (Lichtanlage v in lichtanlage)
                     {
-                        dataGridViewTeile.Rows.Add(v.LichtanlageID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Leuchtstaerke, v.Stromversorgung, v.Montagemoeglichkeit);
+                        dataGridViewTeile.Rows.Add(v.LichtanlageID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Leuchtstaerke, v.Stromversorgung, v.Montagemoeglichkeit);
                     }
                     break;
                 case "pedale":
                     foreach (Pedale v in pedale)
                     {
-                        dataGridViewTeile.Rows.Add(v.PedaleID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Pedaltyp, v.Material, v.Reflektoren);
+                        dataGridViewTeile.Rows.Add(v.PedaleID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Pedaltyp, v.Material, v.Reflektoren);
                     }
                     break;
                 case "rahmen":
                     foreach (Rahmen v in rahmen)
                     {
-                        dataGridViewTeile.Rows.Add(v.RahmenID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Material, v.Groesse, v.Farbe);
+                        dataGridViewTeile.Rows.Add(v.RahmenID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Material, v.Groesse, v.Farbe);
                     }
                     break;
                 case "reifen":
                     foreach (Reifen v in reifen)
                     {
-                        dataGridViewTeile.Rows.Add(v.ReifenID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Reifentyp, v.Groesse, v.Profil);
+                        dataGridViewTeile.Rows.Add(v.ReifenID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Reifentyp, v.Groesse, v.Profil);
                     }
                     break;
                 case "ritzel":
                     foreach (Ritzel v in ritzel)
                     {
-                        dataGridViewTeile.Rows.Add(v.RitzelID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Zahnanzahl, v.Material, v.Freilauf);
+                        dataGridViewTeile.Rows.Add(v.RitzelID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Zahnanzahl, v.Material, v.Freilauf);
                     }
                     break;
                 case "sattel":
                     foreach (Sattel v in sattel)
                     {
-                        dataGridViewTeile.Rows.Add(v.SattelID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Satteltyp, v.Material, v.Polsterung);
+                        dataGridViewTeile.Rows.Add(v.SattelID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Satteltyp, v.Material, v.Polsterung);
                     }
                     break;
                 case "sattelstuetze":
                     foreach (Sattelstuetze v in sattelstuetze)
                     {
-                        dataGridViewTeile.Rows.Add(v.SattelstuetzeID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Durchmesser, v.Material, v.Federung);
+                        dataGridViewTeile.Rows.Add(v.SattelstuetzeID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Durchmesser, v.Material, v.Federung);
                     }
                     break;
                 case "schaltwerk":
                     foreach (Schaltwerk v in schaltwerk)
                     {
-                        dataGridViewTeile.Rows.Add(v.SchaltwerkID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Schaltungstyp, v.Material, v.Schaltstufen);
+                        dataGridViewTeile.Rows.Add(v.SchaltwerkID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Schaltungstyp, v.Material, v.Schaltstufen);
                     }
                     break;
                 case "staender":
                     foreach (Staender v in staender)
                     {
-                        dataGridViewTeile.Rows.Add(v.StaenderID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Typ, v.Material, v.Verstellbar);
+                        dataGridViewTeile.Rows.Add(v.StaenderID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Typ, v.Material, v.Verstellbar);
                     }
                     break;
                 case "tretlager":
                     foreach (Tretlager v in tretlager)
                     {
-                        dataGridViewTeile.Rows.Add(v.TretlagerID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Achsendurchmesser, v.Lagerart, v.Material);
+                        dataGridViewTeile.Rows.Add(v.TretlagerID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Achsendurchmesser, v.Lagerart, v.Material);
                     }
                     break;
                 case "vorbau":
                     foreach (Vorbau v in vorbau)
                     {
-                        dataGridViewTeile.Rows.Add(v.GabelID, v.Marke, v.Modell, v.Preis, v.AufLager, v.Laenge, v.Winkel, v.Material);
+                        dataGridViewTeile.Rows.Add(v.VorbauID, v.Marke, v.Modell, v.Preis, v.Stk_auf_lager, v.Laenge, v.Winkel, v.Material);
                     }
                     break;
                 case "":

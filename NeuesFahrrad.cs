@@ -390,25 +390,25 @@ namespace FahrradHandel
             #region id fetch
             string marke = fahrraeder.Find(x => x.FahrradID == fahrradID).Marke;
             int aufLager = fahrraeder.Find(x => x.FahrradID == fahrradID).AufLager;
-            int bremsID = bremsen.Find(x => x.Modell == comboBoxBremsen.Text).BremsenID;
-            int bremshebelID = bremshebel.Find(x => x.Modell == comboBoxBremshebel.Text).BremshebelID;
-            int gabelID = gabel.Find(x => x.Modell == comboBoxGabel.Text).GabelID;
-            int ketteID = kette.Find(x => x.Modell == comboBoxKette.Text).KetteID;
-            int kettenblattID = kettenblatt.Find(x => x.Modell == comboBoxKettenblatt.Text).KettenblattID;
-            int klingelID = klingel.Find(x => x.Modell == comboBoxKlingel.Text).KlingelID;
-            int laufradID = laufraeder.Find(x => x.Modell == comboBoxLaufrad.Text).LaufraederID;
-            int lenkerID = lenker.Find(x => x.Modell == comboBoxLenker.Text).LenkerID;
-            int lichtID = lichtanlage.Find(x => x.Modell == comboBoxLichtanlagen.Text).LichtanlageID;
-            int pedaleID = pedale.Find(x => x.Modell == comboBoxPedale.Text).PedaleID;
-            int rahmenID = rahmen.Find(x => x.Modell == comboBoxRahmen.Text).RahmenID;
-            int reifenID = reifen.Find(x => x.Modell == comboBoxReifen.Text).ReifenID;
-            int ritzelID = ritzel.Find(x => x.Modell == comboBoxRitzel.Text).RitzelID;
-            int sattelID = sattel.Find(x => x.Modell == comboBoxSattel.Text).SattelID;
-            int sattelstuetzeID = sattelstuetze.Find(x => x.Modell == comboBoxSattelstuetzen.Text).SattelstuetzeID;
-            int schaltwerkID = schaltwerk.Find(x => x.Modell == comboBoxSchaltwerk.Text).SchaltwerkID;
-            int staenderID = staender.Find(x => x.Modell == comboBoxStaender.Text).StaenderID;
-            int tretlagerID = tretlager.Find(x => x.Modell == comboBoxTretlager.Text).TretlagerID;
-            int vorbauID = vorbau.Find(x => x.Modell == comboBoxVorbau.Text).VorbauID;
+            int? bremsID = bremsen.Find(x => x.Modell == comboBoxBremsen.Text).BremsenID;
+            int? bremshebelID = bremshebel.Find(x => x.Modell == comboBoxBremshebel.Text).BremshebelID;
+            int? gabelID = gabel.Find(x => x.Modell == comboBoxGabel.Text).GabelID;
+            int? ketteID = kette.Find(x => x.Modell == comboBoxKette.Text).KetteID;
+            int? kettenblattID = kettenblatt.Find(x => x.Modell == comboBoxKettenblatt.Text).KettenblattID;
+            int? klingelID = klingel.Find(x => x.Modell == comboBoxKlingel.Text).KlingelID;
+            int? laufradID = laufraeder.Find(x => x.Modell == comboBoxLaufrad.Text).LaufraederID;
+            int? lenkerID = lenker.Find(x => x.Modell == comboBoxLenker.Text).LenkerID;
+            int? lichtID = lichtanlage.Find(x => x.Modell == comboBoxLichtanlagen.Text).LichtanlageID;
+            int? pedaleID = pedale.Find(x => x.Modell == comboBoxPedale.Text).PedaleID;
+            int? rahmenID = rahmen.Find(x => x.Modell == comboBoxRahmen.Text).RahmenID;
+            int? reifenID = reifen.Find(x => x.Modell == comboBoxReifen.Text).ReifenID;
+            int? ritzelID = ritzel.Find(x => x.Modell == comboBoxRitzel.Text).RitzelID;
+            int? sattelID = sattel.Find(x => x.Modell == comboBoxSattel.Text).SattelID;
+            int? sattelstuetzeID = sattelstuetze.Find(x => x.Modell == comboBoxSattelstuetzen.Text).SattelstuetzeID;
+            int? schaltwerkID = schaltwerk.Find(x => x.Modell == comboBoxSchaltwerk.Text).SchaltwerkID;
+            int? staenderID = staender.Find(x => x.Modell == comboBoxStaender.Text).StaenderID;
+            int? tretlagerID = tretlager.Find(x => x.Modell == comboBoxTretlager.Text).TretlagerID;
+            int? vorbauID = vorbau.Find(x => x.Modell == comboBoxVorbau.Text).VorbauID;
             #endregion
 
             try

@@ -52,7 +52,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Bremsen bremse = new Bremsen(
-                            -1,
+                            null,
                             textBoxBremsenBremsart.Text,
                             textBoxBremsenBremsmaterial.Text,
                             Convert.ToInt32(textBoxBremsenDurchmesser.Text),
@@ -62,7 +62,7 @@ namespace FahrradHandel
                             Convert.ToInt32(textBoxBremsenStkAufLager.Text)
                         );
 
-                    db.newBremsen(bremse);
+                    db.InsertEntity<Bremsen>(bremse, "bremsen");
 
                     MessageBox.Show(textBoxBremsenModell.Text + " wurde erfolgreich hinzugefügt");
 
@@ -102,7 +102,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Bremshebel bremsh = new Bremshebel(
-                        -1,
+                        null,
                         textBoxBremhMarke.Text,
                         textBoxBremhModell.Text,
                         Convert.ToDecimal(textBoxBremhPreis.Text),
@@ -112,7 +112,7 @@ namespace FahrradHandel
                         textBoxBremhErgonomie.Text
                         );
 
-                    db.newBremshebel(bremsh);
+                    db.InsertEntity<Bremshebel>(bremsh, "bremshebel");
 
                     MessageBox.Show(textBoxBremhModell.Text + " wurde erfolgreich hinzugefügt");
 
@@ -142,7 +142,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Gabel gabel = new Gabel(
-                        -1,
+                        null,
                         textBoxGabelMarke.Text,
                         textBoxGabelModell.Text,
                         Convert.ToDecimal(textBoxGabelPreis.Text),
@@ -152,7 +152,7 @@ namespace FahrradHandel
                         Convert.ToInt32(textBoxGabelFederweg.Text)
                         );
 
-                    db.newGabel(gabel);
+                    db.InsertEntity<Gabel>(gabel, "gabel");
 
                     MessageBox.Show(textBoxGabelModell.Text + " wurde erfolgreich erstellt.");
                     this.Close();
@@ -173,7 +173,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Kette kette = new Kette(
-                        -1,
+                        null,
                         textBoxKetteMarke.Text,
                         textBoxKetteModell.Text,
                         Convert.ToDecimal(textBoxKettePreis.Text),
@@ -183,7 +183,7 @@ namespace FahrradHandel
                         Convert.ToInt32(textBoxKetteLaenge.Text)
                         );
 
-                    db.newKette(kette);
+                    db.InsertEntity<Kette>(kette, "kette");
 
                     MessageBox.Show(textBoxKetteModell.Text + " wurde erfolgreich erstellt.");
                     this.Close();
@@ -205,7 +205,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Kettenblatt kettenb = new Kettenblatt(
-                        -1,
+                        null,
                         textBoxKettenblattMarke.Text,
                         textBoxKettenblattModell.Text,
                         Convert.ToDecimal(textBoxKettenblattPreis.Text),
@@ -215,7 +215,7 @@ namespace FahrradHandel
                         Convert.ToInt32(textBoxKettenblattLochkreis.Text)
                         );
 
-                    db.newKettenblatt(kettenb);
+                    db.InsertEntity<Kettenblatt>(kettenb, "kettenblatt");
 
                     MessageBox.Show(textBoxKettenblattModell.Text + " wurde erfolgreich erstellt.");
                     this.Close();
@@ -236,7 +236,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Klingel klingel = new Klingel(
-                        -1,
+                        null,
                         textBoxKlingelMarke.Text,
                         textBoxKlingelModell.Text,
                         Convert.ToDecimal(textBoxKlingelPreis.Text),
@@ -246,7 +246,7 @@ namespace FahrradHandel
                         Convert.ToInt32(textBoxKlingelLautstaerke.Text)
                         );
 
-                    db.newKlingel(klingel);
+                    db.InsertEntity<Klingel>(klingel, "klingel");
 
                     MessageBox.Show(textBoxKlingelModell.Text + " wurde erfolgreich erstellt.");
                     this.Close();
@@ -267,7 +267,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Laufraeder laufrad = new Laufraeder(
-                        -1,
+                        null,
                         textBoxLaufradMarke.Text,
                         textBoxLaufradModell.Text,
                         Convert.ToDecimal(textBoxLaufradPreis.Text),
@@ -277,7 +277,7 @@ namespace FahrradHandel
                         textBoxLaufradReifentyp.Text
                         );
 
-                    db.newLaufrad(laufrad);
+                    db.InsertEntity<Laufraeder>(laufrad, "laufraeder");
 
                     MessageBox.Show(textBoxKlingelModell.Text + " wurde erfolgreich erstellt.");
                     this.Close();
@@ -298,7 +298,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Lenker lenker = new Lenker(
-                        -1,
+                        null,
                         textBoxLenkerMarke.Text,
                         textBoxLenkerModell.Text,
                         Convert.ToDecimal(textBoxLenkerPreis.Text),
@@ -308,7 +308,7 @@ namespace FahrradHandel
                         Convert.ToInt32(textBoxLenkerBreite.Text)
                         );
 
-                    db.newLenker(lenker);
+                    db.InsertEntity<Lenker>(lenker, "lenker");
 
                     MessageBox.Show(textBoxLenkerModell.Text + " wurde erfolgreich erstellt.");
                     this.Close();
@@ -329,7 +329,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Lichtanlage lichtan = new Lichtanlage(
-                        -1,
+                        null,
                         textBoxLichtanlageMarke.Text,
                         textBoxLichtanlageModell.Text,
                         Convert.ToDecimal(textBoxLichtanlagePreis.Text),
@@ -339,7 +339,7 @@ namespace FahrradHandel
                         textBoxLichtanlageMontage.Text
                         );
 
-                    db.newLichtanlage(lichtan);
+                    db.InsertEntity<Lichtanlage>(lichtan, "lichtanlage");
 
                     MessageBox.Show(textBoxLichtanlageModell.Text + " wurde erfolgreich erstellt.");
                     this.Close();
@@ -375,7 +375,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Pedale pedal = new Pedale(
-                        -1,
+                        null,
                         textBoxPedaleMarke.Text,
                         textBoxPedaleModell.Text,
                         Convert.ToDecimal(textBoxPedalePreis.Text),
@@ -386,7 +386,7 @@ namespace FahrradHandel
 
                         );
 
-                    db.newPedale(pedal);
+                    db.InsertEntity<Pedale>(pedal, "pedale");
 
                     MessageBox.Show(textBoxLichtanlageModell.Text + " wurde erfolgreich erstellt.");
                     this.Close();
@@ -407,7 +407,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Rahmen rahmen = new Rahmen(
-                        -1,
+                        null,
                         textBoxRahmenMarke.Text,
                         textBoxRahmenModell.Text,
                         Convert.ToDecimal(textBoxRahmenPreis.Text),
@@ -417,7 +417,7 @@ namespace FahrradHandel
                         textBoxRahmenFarben.Text
                         );
 
-                    db.newRahmen(rahmen);
+                    db.InsertEntity<Rahmen>(rahmen, "rahmen");
 
                     MessageBox.Show(textBoxRahmenModell.Text + " wurde erfolgreich erstellt.");
                     this.Close();
@@ -438,7 +438,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Reifen reifen = new Reifen(
-                        -1,
+                        null,
                         textBoxReifenMarke.Text,
                         textBoxReifenModell.Text,
                         Convert.ToDecimal(textBoxReifenPreis.Text),
@@ -448,7 +448,7 @@ namespace FahrradHandel
                         textBoxReifenProfil.Text
                         );
 
-                    db.newReifen(reifen);
+                    db.InsertEntity<Reifen>(reifen, "reifen");
 
                     MessageBox.Show(textBoxReifenModell.Text + " wurde erfolgreich erstellt.");
                     this.Close();
@@ -484,7 +484,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Ritzel ritzel = new Ritzel(
-                        -1,
+                        null,
                         textBoxRitzelMarke.Text,
                         textBoxRitzelModell.Text,
                         Convert.ToDecimal(textBoxRitzelPreis.Text),
@@ -494,7 +494,7 @@ namespace FahrradHandel
                         isVerstellbar
                         );
 
-                    db.newRitzel(ritzel);
+                    db.InsertEntity<Ritzel>(ritzel, "ritzel");
 
                     MessageBox.Show(textBoxRitzelModell.Text + " wurde erfolgreich erstellt.");
                     this.Close();
@@ -514,7 +514,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Sattel sattel = new Sattel(
-                        -1,
+                        null,
                         textBoxSattelMarke.Text,
                         textBoxSattelModell.Text,
                         Convert.ToDecimal(textBoxSattelPreis.Text),
@@ -523,7 +523,9 @@ namespace FahrradHandel
                         textBoxSattelMaterial.Text,
                         textBoxSattelPolsterung.Text
                         );
-                    db.newSattel(sattel);
+
+                    db.InsertEntity<Sattel>(sattel, "sattel");
+
                     MessageBox.Show(textBoxSattelModell.Text + " wurde erfolgreich erstellt.");
                     this.Close();
                 }
@@ -558,7 +560,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Sattelstuetze sattelst = new Sattelstuetze(
-                        -1,
+                        null,
                         textBoxSattelstuetzeMarke.Text,
                         textBoxSattelstuetzeModell.Text,
                         Convert.ToDecimal(textBoxSattelstuetzePreis.Text),
@@ -568,7 +570,7 @@ namespace FahrradHandel
                         isVerstellbar
                         );
 
-                    db.newSattelstuetze(sattelst);
+                    db.InsertEntity<Sattelstuetze>(sattelst, "sattelstuetze");
 
                     MessageBox.Show(textBoxSattelstuetzeModell.Text + " wurde erfolgreich erstellt.");
                     this.Close();
@@ -588,7 +590,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Schaltwerk schaltw = new Schaltwerk(
-                        -1,
+                        null,
                         textBoxSchaltwerkMarke.Text,
                         textBoxSchaltwerkModell.Text,
                         Convert.ToDecimal(textBoxSchaltwerkPreis.Text),
@@ -597,7 +599,9 @@ namespace FahrradHandel
                         textBoxSchaltwerkMaterial.Text,
                         Convert.ToInt32(textBoxSchaltwerkSchaltstufen.Text)
                         );
-                    db.newSchaltwerk(schaltw);
+
+                    db.InsertEntity<Schaltwerk>(schaltw, "schaltwerk");
+
                     MessageBox.Show(textBoxSattelModell.Text + " wurde erfolgreich erstellt.");
                     this.Close();
                 }
@@ -632,7 +636,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Staender staender = new Staender(
-                        -1,
+                        null,
                         textBoxStaenderMarke.Text,
                         textBoxStaenderModell.Text,
                         Convert.ToDecimal(textBoxSattelstuetzePreis.Text),
@@ -642,7 +646,7 @@ namespace FahrradHandel
                         isVerstellbar
                         );
 
-                    db.newStaender(staender);
+                    db.InsertEntity<Staender>(staender, "staender");
 
                     MessageBox.Show(textBoxSattelstuetzeModell.Text + " wurde erfolgreich erstellt.");
                     this.Close();
@@ -662,7 +666,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Tretlager tretlager = new Tretlager(
-                        -1,
+                        null,
                         textBoxTretlagerMarke.Text,
                         textBoxTretlagerModell.Text,
                         Convert.ToDecimal(textBoxTretlagerPreis.Text),
@@ -672,7 +676,8 @@ namespace FahrradHandel
                         textBoxTretlagerLagerart.Text
                         );
 
-                    db.newTretlager(tretlager);
+                    db.InsertEntity<Tretlager>(tretlager, "tretlager");
+
                     MessageBox.Show(textBoxTretlagerModell.Text + " wurde erfolgreich erstellt.");
 
                     this.Close();
@@ -692,7 +697,7 @@ namespace FahrradHandel
                 if (!anyEmpty)
                 {
                     Vorbau vorbau = new Vorbau(
-                        -1,
+                        null,
                         textBoxVorbauMarke.Text,
                         textBoxVorbauModell.Text,
                         Convert.ToDecimal(textBoxVorbauPreis.Text),
@@ -702,7 +707,8 @@ namespace FahrradHandel
                         textBoxVorbauMaterial.Text
                         );
 
-                    db.newVorbau(vorbau);
+                    db.InsertEntity<Vorbau>(vorbau, "vorbau");
+
                     MessageBox.Show(textBoxVorbauModell.Text + " wurde erfolgreich erstellt.");
 
                     this.Close();

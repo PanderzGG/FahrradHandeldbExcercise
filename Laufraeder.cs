@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace FahrradHandel
 {
-    public class Laufraeder : Fahrrad
+    public class Laufraeder : BaseFahrrad
     {
-        private int laufraederID;
+        private int? laufraederID;
         private string felgengroesse;
-        private string narbenart;
+        private string nabenart;
         private string reifentyp;
-        public int LaufraederID { get => laufraederID; set => laufraederID = value; }
+        public int? LaufraederID { get => laufraederID; set => laufraederID = value; }
         public string Felgengroesse { get => felgengroesse; set => felgengroesse = value; }
-        public string Narbenart { get => narbenart; set => narbenart = value; }
+        public string Nabenart { get => nabenart; set => nabenart = value; }
         public string Reifentyp { get => reifentyp; set => reifentyp = value; }
 
-        public Laufraeder(int laufraederID, string marke, string modell, decimal preis, int aufLager, string felgengroesse, string narbenart, string reifentyp) : base(marke, modell, preis, aufLager)
+        public Laufraeder(int? laufraederID, string marke, string modell, decimal preis, int stk_auf_lager, string felgengroesse, string nabenart, string reifentyp) : base(marke, modell, preis, stk_auf_lager)
         {
             this.laufraederID = laufraederID;
             this.felgengroesse = felgengroesse;
-            this.narbenart = narbenart;
+            this.nabenart = nabenart;
             this.reifentyp = reifentyp;
         }
 

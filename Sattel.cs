@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace FahrradHandel
 {
-    public class Sattel : Fahrrad
+    public class Sattel : BaseFahrrad
     {
-        private int sattelID;
+        private int? sattelID;
         private string satteltyp;
         private string material;
         private string polsterung;
 
-        public int SattelID { get => sattelID; set => sattelID = value; }
+        public int? SattelID { get => sattelID; set => sattelID = value; }
         public string Satteltyp { get => satteltyp; set => satteltyp = value; }
         public string Material { get => material; set => material = value; }
         public string Polsterung { get => polsterung; set => polsterung = value; }
 
-        public Sattel(int sattelID, string marke, string modell, decimal preis, int aufLager, string satteltyp, string material, string polsterung) : base(marke, modell, preis, aufLager)
+        public Sattel(int? sattelID, string marke, string modell, decimal preis, int stk_auf_lager, string satteltyp, string material, string polsterung) : base(marke, modell, preis, stk_auf_lager)
         {
             this.sattelID = sattelID;
             this.satteltyp = satteltyp;

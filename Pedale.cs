@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace FahrradHandel
 {
-    public class Pedale : Fahrrad
+    public class Pedale : BaseFahrrad
     {
-        private int pedaleID;
+        private int? pedaleID;
         private string pedaltyp;
         private string material;
         private bool reflektoren;
-        public int PedaleID { get => pedaleID; set => pedaleID = value; }
+        public int? PedaleID { get => pedaleID; set => pedaleID = value; }
         public string Pedaltyp { get => pedaltyp; set => pedaltyp = value; }
         public string Material { get => material; set => material = value; }
         public bool Reflektoren { get => reflektoren; set => reflektoren = value; }
 
-        public Pedale(int pedaleID, string marke, string modell, decimal preis, int aufLager, string pedaltyp, string material, bool reflektoren) : base(marke, modell, preis, aufLager)
+        public Pedale(int? pedaleID, string marke, string modell, decimal preis, int stk_auf_lager, string pedaltyp, string material, bool reflektoren) : base(marke, modell, preis, stk_auf_lager)
         {
             this.pedaleID = pedaleID;
             this.pedaltyp = pedaltyp;
